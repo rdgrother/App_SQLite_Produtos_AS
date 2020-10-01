@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">App SQLite</string>
+    <string name="txtBuscar">Buscar</string>
+    <string name="nome_do_produto">Nome do produto</string>
+    <string name="codigo">Código</string>
+    <string name="valor">Valor</string>
+    <string name="quantidade">Quantidade</string>
+    <string name="cadastro_de_produtos">Cadastro de produtos</string>
+    <string name="imgcadastro">imgCadastro</string>
+    <string name="titulo_app">Cadastro de Produtos com SQLite</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="buscar">Buscar</string>
+    <string name="detalhe_do_produto">Detalhe do Produto</string>
+</resources>

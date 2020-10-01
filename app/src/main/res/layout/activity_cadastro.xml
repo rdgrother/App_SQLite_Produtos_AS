@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    tools:context=".Cadastro">
+
+    <ImageView
+        android:id="@+id/imgCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/imgcadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/SQLite" />
+
+    <TextView
+        android:id="@+id/txtCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/orienta"
+        android:text="@string/cadastro_de_produtos"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtNome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgCadastro" />
+
+    <EditText
+        android:id="@+id/edtNome"
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="312dp"
+        android:layout_marginBottom="246dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/orienta"
+        android:hint="@string/nome_do_produto"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtValor"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="211dp"
+        android:layout_marginTop="368dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="185dp"
+        android:ems="10"
+        android:fontFamily="@font/orienta"
+        android:hint="@string/valor"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtQtde"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="368dp"
+        android:layout_marginEnd="210dp"
+        android:layout_marginBottom="185dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/orienta"
+        android:hint="@string/quantidade"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edtCodigo"
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="421dp"
+        android:layout_marginBottom="137dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:fontFamily="@font/orienta"
+        android:hint="@string/codigo"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/background_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
