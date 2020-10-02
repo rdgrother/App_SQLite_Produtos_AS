@@ -11,4 +11,6 @@
     <string name="cadastrar">Cadastrar</string>
     <string name="buscar">Buscar</string>
     <string name="detalhe_do_produto">Detalhe do Produto</string>
+    <string name="btnSalvar">Salvar</string>
+    <string name="lista_de_produtos">Lista de Produtos</string>
 </resources>

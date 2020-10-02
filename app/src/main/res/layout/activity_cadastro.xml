@@ -7,6 +7,25 @@
     android:background="@android:color/background_light"
     tools:context=".Cadastro">
 
+    <Button
+        android:id="@+id/btnSalvar"
+        android:layout_width="379dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="498dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="57dp"
+        android:background="@android:color/background_dark"
+        android:fontFamily="@font/orienta"
+        android:text="@string/btnSalvar"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imgCadastro"
         android:layout_width="wrap_content"

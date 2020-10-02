@@ -19,11 +19,11 @@
         app:srcCompat="@mipmap/SQLite" />
 
     <TextView
-        android:id="@+id/txtBusca"
+        android:id="@+id/txtListar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/orienta"
-        android:text="@string/txtBuscar"
+        android:text="@string/lista_de_produtos"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
