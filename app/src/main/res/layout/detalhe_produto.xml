@@ -10,10 +10,11 @@
     <ImageView
         android:id="@+id/imgDetalhe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
         android:layout_marginTop="32dp"
+        android:layout_margin="8dp"
         android:contentDescription="@string/imgcadastro"
-        app:srcCompat="@mipmap/SQLite" />
+        app:srcCompat="@drawable/sqlite" />
 
     <TextView
         android:id="@+id/txtDetalhe"
@@ -24,7 +25,8 @@
         android:text="@string/detalhe_do_produto"
         android:textAlignment="center"
         android:textColor="@android:color/holo_green_dark"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/detProduto"

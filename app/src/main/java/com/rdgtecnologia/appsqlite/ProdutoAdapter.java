@@ -1,6 +1,7 @@
 package com.rdgtecnologia.appsqlite;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +15,12 @@ public class ProdutoAdapter extends BaseAdapter {
     private Context context;
     private ArrayList<Produto> listaProduto;
     private LayoutInflater inflater;
-    public TextView tvNome;
-    public TextView tvCodigo;
-    public TextView tvQtde;
-    public TextView tvValor;
+    public TextView detNome;
+    public TextView detCodigo;
+    public TextView detQtde;
+    public TextView detValor;
 
+    //Construtor
     public ProdutoAdapter(Context context, ArrayList<Produto> listaProduto){
 
         this.context = context;
@@ -26,7 +28,7 @@ public class ProdutoAdapter extends BaseAdapter {
         inflater = LayoutInflater.from(context);
 
     }
-
+    //Retornando o tamanho da lista para ser mostrada
     @Override
     public int getCount() {
         return listaProduto.size();
@@ -44,6 +46,26 @@ public class ProdutoAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
+
+        Produto prod = listaProduto.get(i);
+        try {
+
+            if (view == null) view = inflater.inflate(R.layout.detalhe_produto, null);
+
+            detNome = view.findViewById(R.id.detProduto);
+            detCodigo = view.findViewById(R.id.detCodigo);
+            detQtde = view.findViewById(R.id.detQtde);
+            detValor = view.findViewById(R.id.detValor);
+
+            detNome.setText("Produto: " + prod.getNome());
+            detCodigo.setText("Código: " + prod.getCodigo());
+            detQtde.setText("Quantidade: " + prod.getQtde());
+            detValor.setText("Valor: " + prod.getValor());
+
+        } catch (Exception e) {
+            Log.e("GETVIEW", e.getMessage());
+        }
+
         return null;
     }
 }

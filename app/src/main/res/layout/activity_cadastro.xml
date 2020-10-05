@@ -29,13 +29,13 @@
     <ImageView
         android:id="@+id/imgCadastro"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_height="150dp"
+        android:layout_margin="8dp"
         android:contentDescription="@string/imgcadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/SQLite" />
+        app:srcCompat="@drawable/sqlite" />
 
     <TextView
         android:id="@+id/txtCadastro"
@@ -45,6 +45,7 @@
         android:text="@string/cadastro_de_produtos"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtNome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
