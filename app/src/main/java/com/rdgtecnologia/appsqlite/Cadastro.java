@@ -14,6 +14,7 @@ public class Cadastro extends AppCompatActivity {
     private EditText edtNome, edtQtde, edtValor, edtCodigo;
     private Button btnSalvar;
     private Produto prod;
+    private ProdutoDAO prodDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +25,10 @@ public class Cadastro extends AppCompatActivity {
         edtQtde = findViewById(R.id.edtQtde);
         edtValor = findViewById(R.id.edtValor);
         edtCodigo = findViewById(R.id.edtCodigo);
-        btnSalvar = findViewById(R.id.btnCadastrar);
+        btnSalvar = findViewById(R.id.btnSalvar);
+
+        prodDAO = new ProdutoDAO(getApplicationContext());
+        prodDAO.abrirBanco();
 
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,13 +40,16 @@ public class Cadastro extends AppCompatActivity {
                 prod.setValor(Double.parseDouble(edtValor.getText().toString()));
                 prod.setQtde(Long.parseLong(edtQtde.getText().toString()));
 
+                prodDAO.inserir(prod);
+
                 Toast.makeText(getBaseContext(),
-                        "Produto Castrado: " + prod.toString(),
+                        "Produto Cadastrado: " + prod.toString(),
                         Toast.LENGTH_LONG).show();
 
                 limpar();
-
             }
+                });
+        }
 
             private void limpar() {
                 edtNome.setText(null);
@@ -50,10 +57,22 @@ public class Cadastro extends AppCompatActivity {
                 edtValor.setText(null);
                 edtQtde.setText(null);
             }
-        });
+
+            protected void onResume() {
+                super.onResume();
+                prodDAO.abrirBanco();
+
+            }
+
+            protected void onPause() {
+                super.onPause();
+                prodDAO.fecharBanco();
+            }
 
 
-    }
+        }
 
 
-}
+
+
+
