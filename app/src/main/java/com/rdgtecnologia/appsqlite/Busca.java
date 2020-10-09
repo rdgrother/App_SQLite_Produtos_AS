@@ -15,7 +15,7 @@ public class Busca extends AppCompatActivity {
     private ArrayList<Produto> prodAux;
     private ListView lvProdutos;
     private int posSelec = -1;
-
+    private ProdutoDAO prodDAO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +24,13 @@ public class Busca extends AppCompatActivity {
 
         lvProdutos = findViewById(R.id.lvProdutos);
 
+        prodDAO = new ProdutoDAO(this);
+        prodDAO.abrirBanco();
+        prodAux = prodDAO.consultar();
+
         adapter = new ProdutoAdapter(this, prodAux);
         lvProdutos.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         lvProdutos.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -37,4 +42,16 @@ public class Busca extends AppCompatActivity {
 
         registerForContextMenu(lvProdutos);
     }
+
+    protected void onResume(){
+        super.onResume();
+        prodDAO.abrirBanco();
+
+    }
+
+    protected void onPause(){
+        super.onPause();
+        prodDAO.fecharBanco();
+    }
 }
+

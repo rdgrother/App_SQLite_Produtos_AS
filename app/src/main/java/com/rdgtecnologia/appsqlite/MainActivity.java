@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnCadastrar = findViewById(R.id.btnCadastrar);
-        btnBuscar =  findViewById(R.id.btnCadastrar);
+        btnBuscar =  findViewById(R.id.btnBuscar);
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,10 +32,11 @@ public class MainActivity extends AppCompatActivity {
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),Busca.class);
+                Intent intent = new Intent(getApplicationContext(), Busca.class);
                 startActivity(intent);
             }
         });
+
 
     }
 }
