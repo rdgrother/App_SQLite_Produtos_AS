@@ -6,16 +6,19 @@ public class Produto implements Serializable  { // Processo que uma instâcia de
     private String nome, codigo;
     private long qtde;
     private double valor;
+    private int id;
 
     public Produto(){
 
     }
 
-    public Produto(String nome, String codigo, long qtde, double valor) {
+    public Produto(String nome, String codigo, long qtde, double valor, int id) {
         this.nome = nome;
         this.codigo = codigo;
         this.qtde = qtde;
         this.valor = valor;
+        this.id = id;
+
     }
 
     @Override
@@ -58,5 +61,13 @@ public class Produto implements Serializable  { // Processo que uma instâcia de
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

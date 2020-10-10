@@ -19,6 +19,7 @@ public class ProdutoAdapter extends BaseAdapter {
     public TextView detCodigo;
     public TextView detQtde;
     public TextView detValor;
+    public TextView txtId;
 
     //Construtor
     public ProdutoAdapter(Context context, ArrayList<Produto> listaProduto){
@@ -28,6 +29,15 @@ public class ProdutoAdapter extends BaseAdapter {
         inflater = LayoutInflater.from(context);
 
     }
+
+    public void add(Produto prod){
+        this.listaProduto.add(prod);
+    }
+
+    public void remove(Produto prod){
+        this.listaProduto.remove(prod);
+    }
+
     //Retornando o tamanho da lista para ser mostrada
     @Override
     public int getCount() {
@@ -47,16 +57,20 @@ public class ProdutoAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        Produto prod = listaProduto.get(i);
+        Produto prod = this.listaProduto.get(i);
         try {
 
             if (view == null) view = inflater.inflate(R.layout.detalhe_produto, null);
 
+
+
+            txtId = view.findViewById(R.id.txtId);
             detNome = view.findViewById(R.id.detProduto);
             detCodigo = view.findViewById(R.id.detCodigo);
             detQtde = view.findViewById(R.id.detQtde);
             detValor = view.findViewById(R.id.detValor);
 
+            txtId.setText("ID: " + prod.getId());
             detNome.setText("Produto: " + prod.getNome());
             detCodigo.setText("Código: " + prod.getCodigo());
             detQtde.setText("Quantidade: " + prod.getQtde());

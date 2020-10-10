@@ -3,6 +3,7 @@ package com.rdgtecnologia.appsqlite;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import android.widget.HeterogeneousExpandableList;
 
 import androidx.annotation.Nullable;
@@ -33,10 +34,10 @@ public class Helper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE" + TBL_PRODUTO
+        String sql = "CREATE TABLE if NOT EXISTS " + TBL_PRODUTO
                 + " ( " +
                 ID_PRODUTO + "integer primary key autoincrement, " +
-                NM_PRODUTO + "text not null" +
+                NM_PRODUTO + "text not null " +
                 CD_PRODUTO + "text not null, " +
                 VL_PRODUTO + "double not null, " +
                 QT_PRODUTO + "integer not null);";
@@ -47,10 +48,12 @@ public class Helper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         String sql = "DROP TABLE" + TBL_PRODUTO;
-
-        sqLiteDatabase.execSQL(sql);
+        try {
+            sqLiteDatabase.execSQL(sql);
+        }catch (Exception e){
+            Log.e("HELPER", "Erro ao excluir tabela" +e.getMessage());
+        }
 
         onCreate(sqLiteDatabase);
-
     }
 }

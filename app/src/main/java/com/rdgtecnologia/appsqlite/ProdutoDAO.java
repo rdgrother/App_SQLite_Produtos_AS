@@ -13,6 +13,7 @@ public class ProdutoDAO {
     private Helper dbHelper;
 
     public ProdutoDAO(Context context) {
+        this.dbHelper = new Helper(context);
 
     }
 
@@ -32,26 +33,43 @@ public class ProdutoDAO {
         cv.put(dbHelper.CD_PRODUTO, prod.getCodigo());
         cv.put(dbHelper.VL_PRODUTO, prod.getValor());
 
-        return db.update(dbHelper.TBL_PRODUTO,
-                cv,
+        return db.insertOrThrow(dbHelper.TBL_PRODUTO,
                 null,
-                null);
+                cv);
+
+
     }
 
     public ArrayList<Produto> consultar() {
         ArrayList<Produto> prodAux = new ArrayList<>();
+        String sql = "SELECT * FROM " + dbHelper.TBL_PRODUTO + ";";
 
-        Cursor cursor = db.query(
-                dbHelper.TBL_PRODUTO,
+        Cursor cursor = db.rawQuery(sql, null);
+
+                /*dbHelper.TBL_PRODUTO,
                 dbHelper.TBL_PROUTO_COLUNAS,
                 null,
                 null,
                 null,
                 null,
-                dbHelper.NM_PRODUTO);
-        cursor.moveToFirst();
+                dbHelper.NM_PRODUTO);*/
 
-        while (!cursor.isAfterLast()) {
+        if (cursor.moveToFirst()){
+            do {
+                Produto prod = new Produto();
+                prod.setId(cursor.getInt(cursor.getColumnIndex("id")));
+                prod.setNome(cursor.getString(cursor.getColumnIndex("nome")));
+                prod.setCodigo(cursor.getString(cursor.getColumnIndex("codigo")));
+                prod.setValor(cursor.getDouble(cursor.getColumnIndex("valor")));
+                prod.setQtde(cursor.getLong(cursor.getColumnIndex("quantidade")));
+                cursor.moveToNext();
+                prodAux.add(prod);
+            }while (cursor.moveToNext());
+            cursor.close();
+        }
+
+
+        /*while (!cursor.isAfterLast()) {
             Produto prod = new Produto();
 
             prod.setNome(cursor.getString(1));
@@ -63,10 +81,9 @@ public class ProdutoDAO {
 
         }
 
-        cursor.close();
+        cursor.close(); */
 
         return prodAux;
-
 
     }
 
